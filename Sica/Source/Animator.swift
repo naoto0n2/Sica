@@ -70,7 +70,7 @@ public final class Animator {
         case .sequence:
             return animations.last.map { $0.beginTime + $0.duration } ?? 0
         case .parallel:
-            return animations.map { $0.duration }.max() ?? 0
+            return animations.map { $0.beginTime + $0.duration }.max() ?? 0
         }
     }
 
