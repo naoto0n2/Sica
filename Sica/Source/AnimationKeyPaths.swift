@@ -49,7 +49,7 @@ extension AnimationKeyPaths {
     public static let cornerRadius      = AnimationKeyPath<CGFloat>(keyPath: #keyPath(CALayer.cornerRadius))
     public static let filters           = AnimationKeyPath<[CIFilter]>(keyPath: #keyPath(CALayer.filters))
     public static let frame             = AnimationKeyPath<CGRect>(keyPath: #keyPath(CALayer.frame))
-    public static let hidden            = AnimationKeyPath<Bool>(keyPath: #keyPath(CALayer.hidden))
+    public static let hidden            = AnimationKeyPath<Bool>(keyPath: #keyPath(CALayer.isHidden))
     public static let mask              = AnimationKeyPath<CALayer>(keyPath: #keyPath(CALayer.mask))
     public static let masksToBounds     = AnimationKeyPath<Bool>(keyPath: #keyPath(CALayer.masksToBounds))
     public static let opacity           = AnimationKeyPath<CGFloat>(keyPath: #keyPath(CALayer.opacity))
