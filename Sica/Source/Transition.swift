@@ -8,7 +8,7 @@
 
 import QuartzCore
 
-public struct Transition {
+public struct Transition: Sendable {
     typealias RawValue = CATransitionType
     public static let fade = Transition(rawValue: .fade)
     public static let moveIn = Transition(rawValue: .moveIn)
@@ -18,7 +18,7 @@ public struct Transition {
     let rawValue: RawValue
 }
 
-public struct TransitionSub {
+public struct TransitionSub: Sendable {
     typealias RawValue = CATransitionSubtype
     public static let right = TransitionSub(rawValue: .fromRight)
     public static let left = TransitionSub(rawValue: .fromLeft)

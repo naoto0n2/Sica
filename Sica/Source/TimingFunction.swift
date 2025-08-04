@@ -8,7 +8,7 @@
 
 import QuartzCore
 
-public struct TimingFunction {
+public struct TimingFunction: @unchecked Sendable {
     public typealias NameValue = CAMediaTimingFunctionName
     public static let `default` = TimingFunction(name: CAMediaTimingFunctionName.default)
     public static let linear = TimingFunction(name: CAMediaTimingFunctionName.linear)

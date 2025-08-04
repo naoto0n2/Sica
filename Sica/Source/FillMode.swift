@@ -9,7 +9,7 @@
 import Foundation
 import QuartzCore
 
-public struct FillMode {
+public struct FillMode: Sendable {
     typealias RawValue = CAMediaTimingFillMode
     public static let forwards = FillMode(rawValue: .forwards)
     public static let backwards = FillMode(rawValue: .backwards)
