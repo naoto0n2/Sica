@@ -6,7 +6,7 @@
 //  Copyright © 2018年 中澤 郁斗. All rights reserved.
 //
 
-#import "TargetConditionals.h"
+#import <TargetConditionals.h>
 
 #if TARGET_OS_OSX
 #import <AppKit/AppKit.h>
