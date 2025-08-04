@@ -12,6 +12,7 @@ import UIKit
 import AppKit
 #endif
 
+@MainActor
 open class AnimationKeyPaths {
     fileprivate init() {}
 }

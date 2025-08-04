@@ -14,6 +14,7 @@ import AppKit
 public typealias View = NSView
 #endif
 
+@MainActor
 public final class Animator {
 
     public enum AnimationPlayType {
@@ -35,7 +36,7 @@ public final class Animator {
     public let key: String
 
     #if DEBUG
-    private var _deinit: (() -> ())? = nil
+    nonisolated(unsafe) private var _deinit: (() -> ())? = nil
     deinit {
         _deinit?()
     }
@@ -173,6 +174,7 @@ public final class Animator {
 
 #if DEBUG
 extension Animator {
+    @MainActor
     struct Test {
         fileprivate let base: Animator
         

@@ -9,11 +9,12 @@
 import XCTest
 @testable import Sica
 
-class SicaTests: XCTestCase {
+@MainActor
+class SicaTests: XCTestCase, Sendable {
     var animator = Animator(view: View())
     
-    override func setUp() {
-        super.setUp()
+    override func setUp() async throws {
+        try await super.setUp()
         animator = Animator(view: View())
     }
     
