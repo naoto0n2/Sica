@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let _animatorAssociatedKey = UnsafeMutablePointer<UInt>.allocate(capacity: 1)
+@MainActor private let _animatorAssociatedKey = UnsafeMutablePointer<UInt>.allocate(capacity: 1)
 
 extension View {
     public var sica: Animator {

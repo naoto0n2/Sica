@@ -14,6 +14,7 @@ import AppKit
 public typealias View = NSView
 #endif
 
+@MainActor
 public final class Animator {
 
     public enum AnimationPlayType {
@@ -24,9 +25,6 @@ public final class Animator {
         case parallel
     }
 
-    /// Flag whether or not to include the delay in the duration calculation when parallel.
-    public static var shouldIncludeDelayInParallelDuration: Bool = false
-
     private weak var layer: CALayer?
     private var group = CAAnimationGroup()
     private var animations = [CAAnimation]()
@@ -35,7 +33,7 @@ public final class Animator {
     public let key: String
 
     #if DEBUG
-    private var _deinit: (() -> ())? = nil
+    nonisolated(unsafe) private var _deinit: (() -> ())? = nil
     deinit {
         _deinit?()
     }
@@ -73,11 +71,7 @@ public final class Animator {
         case .sequence:
             return animations.last.map { $0.beginTime + $0.duration } ?? 0
         case .parallel:
-            if Self.shouldIncludeDelayInParallelDuration {
-                return animations.map { $0.beginTime + $0.duration }.max() ?? 0
-            } else {
-                return animations.map { $0.duration }.max() ?? 0
-            }
+            return animations.map { $0.beginTime + $0.duration }.max() ?? 0
         }
     }
 
@@ -173,6 +167,7 @@ public final class Animator {
 
 #if DEBUG
 extension Animator {
+    @MainActor
     struct Test {
         fileprivate let base: Animator
         

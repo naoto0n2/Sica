@@ -9,9 +9,10 @@
 import Foundation
 import QuartzCore
 
-private let _animatorAssociatedKey = UnsafeMutablePointer<UInt>.allocate(capacity: 1)
+@MainActor private let _animatorAssociatedKey = UnsafeMutablePointer<UInt>.allocate(capacity: 1)
 
 extension CALayer {
+    @MainActor
     public var sica: Animator {
         set {
             objc_setAssociatedObject(self, _animatorAssociatedKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
